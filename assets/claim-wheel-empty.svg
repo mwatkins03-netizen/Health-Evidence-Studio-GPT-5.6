@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#f5f0e6"/>
+  <g transform="translate(300 300)" fill="none" stroke="#cfc5b5">
+    <circle r="240"/><circle r="200"/><circle r="160"/><circle r="120"/>
+    <g opacity=".8">
+      <path d="M0-240V-120"/><path d="M228.25-74.16L114.13-37.08"/><path d="M141.07 194.16L70.53 97.08"/><path d="M-141.07 194.16L-70.53 97.08"/><path d="M-228.25-74.16L-114.13-37.08"/>
+    </g>
+  </g>
+  <circle cx="300" cy="300" r="95" fill="#fbf8f1" stroke="#cfc5b5"/>
+  <text x="300" y="287" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#16253a">YOUR CLAIM</text>
+  <text x="300" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#6b6c67">Shape with evidence</text>
+</svg>
