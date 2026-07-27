@@ -116,7 +116,10 @@ function App() {
     setBusy(true);
     setNotice('');
     try {
-      const response = await fetch(`/api/pubmed?q=${encodeURIComponent(project.query.trim())}`);
+      const endpoint = import.meta.env.VITE_PUBMED_API_URL;
+      if (!endpoint) throw new Error('offline');
+      const separator = endpoint.includes('?') ? '&' : '?';
+      const response = await fetch(`${endpoint}${separator}q=${encodeURIComponent(project.query.trim())}`);
       if (!response.ok) throw new Error('offline');
       const data = await response.json();
       if (!data.items?.length) {

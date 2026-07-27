@@ -35,14 +35,36 @@ npm run build
 
 The deployable static output is written to `dist/`. The app ships with sample evidence, so the complete investigation workflow works even when the serverless API is not configured.
 
+## Publish with GitHub Pages
+
+This repository includes an automatic GitHub Pages deployment workflow.
+
+1. Create a new empty GitHub repository.
+2. Upload or push all files from this folder to the repository's `main` branch.
+3. In the repository, open **Settings → Pages**.
+4. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+5. Open the **Actions** tab and wait for **Deploy to GitHub Pages** to finish.
+
+The site will be available at:
+
+```text
+https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/
+```
+
+The Vite build uses relative asset paths, so it works from a repository subpath without editing the project name into the source.
+
 ## Live PubMed setup
-The included `api/pubmed.js` is written in a Vercel-style handler format.
+
+GitHub Pages is static hosting, so it cannot execute the included serverless function. Without an API URL, the app automatically uses its curated practice evidence.
+
+The included `api/pubmed.js` is written in a Vercel-style handler format. To connect live search:
 
 1. Deploy with a host that supports `/api` serverless functions, or adapt the handler to Netlify/Express.
-2. Copy `.env.example` to the appropriate hosting environment.
+2. Copy `.env.example` to `.env.local`.
 3. Add `NCBI_EMAIL`.
 4. Add an `NCBI_API_KEY` for higher permitted request volume.
-5. Extend the proxy with EFetch and ELink for abstracts and PMC availability.
+5. Set `VITE_PUBMED_API_URL` to the public proxy URL (or `/api/pubmed` on a same-origin Vercel deployment).
+6. Extend the proxy with EFetch and ELink for abstracts and PMC availability.
 
 ## Core pedagogical rule
 **The app never answers the health claim for the student.**
